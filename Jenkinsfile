@@ -14,6 +14,9 @@ pipeline {
                     }
             }
             stage('SonarQube') {
+                agent {
+                docker { image 'maven:3.6.3-openjdk-11-slim' }
+                }
                 steps {
                     script{
                          def scannerHome = tool 'scanner-default';
