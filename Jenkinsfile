@@ -19,7 +19,8 @@ pipeline {
                 }
                     steps {
                         sh 'mvn test'
-                        junit 'build/test-results/test/TEST-*.xml'
+                        junit '**/surefire-reports/*.xml'
+
                     }
             }
             stage('SonarQube') {
