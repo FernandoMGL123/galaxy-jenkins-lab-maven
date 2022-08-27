@@ -10,8 +10,12 @@ pipeline {
                 }
                     steps {
                         sh 'mvn package'
-                        archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
                     }
+                    post{
+                        success {
+                            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true, onlyIfSuccessful: true
+                }
+            }
             }
             stage('SonarQube') {
                 agent {
