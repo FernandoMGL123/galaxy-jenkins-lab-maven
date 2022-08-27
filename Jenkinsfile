@@ -13,16 +13,6 @@ pipeline {
                         archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
                     }
             }
-            stage('Test') {
-                agent {
-                    docker { image 'maven:3.6.3-openjdk-11-slim' }
-                }
-                    steps {
-                        sh 'mvn test'
-                        junit '**/surefire-reports/*.xml'
-
-                    }
-            }
             stage('SonarQube') {
                 steps {
                     script{
