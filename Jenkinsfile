@@ -64,7 +64,7 @@ pipeline {
                     script {
                         sh 'docker login -u ${DOCKER_CREDS_USR} -p ${DOCKER_CREDS_PSW}'
                         sh 'docker tag msmicroservice ${DOCKER_CREDS_USR}/msmicroserviceExamen:$BUILD_NUMBER'
-                        sh 'docker push ${DOCKER_CREDS_USR}/msmicroservice:$BUILD_NUMBER'
+                        sh 'docker push ${DOCKER_CREDS_USR}/msmicroserviceExamen:$BUILD_NUMBER'
                         sh 'docker logout'
                     }
                 }
